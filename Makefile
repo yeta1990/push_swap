@@ -1,4 +1,4 @@
-SRCS	=	ft_push_swap.c ft_atoi.c
+SRCS	=	ft_push_swap.c ft_atoi.c ft_operations.c
 
 NAME	=	push_swap
 

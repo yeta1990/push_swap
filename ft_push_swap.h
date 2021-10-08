@@ -6,7 +6,7 @@
 /*   By: albgarci <albgarci@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 13:29:59 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/08 13:38:40 by albgarci         ###   ########.fr       */
+/*   Updated: 2021/10/08 23:22:33 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-int	ft_atoi(const char *str);
+int		ft_atoi(const char *str);
+void	ft_sa(int *a, int *top_a);
+void	ft_sb(int *b, int *top_b);
+void	ft_pa(int *a, int *b, int *top_a, int *top_b);
+void	ft_pb(int *a, int *b, int *top_a, int *top_b);
 
 #endif
