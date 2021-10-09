@@ -6,7 +6,7 @@
 /*   By: albgarci <albgarci@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 13:29:59 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/09 13:25:49 by albgarci         ###   ########.fr       */
+/*   Updated: 2021/10/09 22:22:37 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ void	ft_sa(int *a, int *top_a);
 void	ft_sb(int *b, int *top_b);
 void	ft_pa(int *a, int *b, int *top_a, int *top_b);
 void	ft_pb(int *a, int *b, int *top_a, int *top_b);
-int		ft_is_sorted(int *a, int size, int top_a);
+int		ft_is_sorted(int *a, int size, int top_a, int asc);
+void	ft_ra(int *a, int top_a, int size);
+void	ft_rb(int *b, int top_b, int size);
+void	ft_rra(int *a, int top_a, int size);
+void	ft_rrb(int *b, int top_b, int size);
 
 #endif
