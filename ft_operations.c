@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_operations.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albgarci <albgarci@student.42madrid.c      +#+  +:+       +#+        */
+/*   By: albgarci <albgarci@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 21:13:06 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/08 23:47:17 by albgarci         ###   ########.fr       */
+/*   Updated: 2021/10/09 13:42:55 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_sa(int *a, int *top_a)
 {
 	int	swap;
 	
-	printf("\ntop a:%i", *top_a);
 	swap = a[*top_a];
 	a[*top_a] = a[*top_a + 1];
 	a[*top_a + 1] = swap;
@@ -47,7 +46,7 @@ void	ft_pa(int *a, int *b, int *top_a, int *top_b)
 
 void	ft_pb(int *a, int *b, int *top_a, int *top_b)
 {
-	if (*top_b >=0)
+	if (*top_b >= 0)
 	{
 		b[(*top_b - 1)] = a[*top_a];
 		*top_b -= 1;
