@@ -5,28 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: albgarci <albgarci@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 13:29:59 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/09 23:42:26 by albgarci         ###   ########.fr       */
+/*   Created: 2021/10/11 19:46:53 by albgarci          #+#    #+#             */
+/*   Updated: 2021/10/11 20:56:58 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PUSH_SWAP_H
 # define FT_PUSH_SWAP_H
 
-# include <stdio.h>
-# include <unistd.h>
 # include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
+
+typedef struct s_list
+{
+	int				content;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_atoi(const char *str);
-void	ft_sa(int *a, int *top_a);
-void	ft_sb(int *b, int *top_b);
-void	ft_pa(int *a, int *b, int *top_a, int *top_b);
-void	ft_pb(int *a, int *b, int *top_a, int *top_b);
-int		ft_is_sorted(int *a, int size, int top_a);
-int		ft_is_sorted_b(int *b, int size, int top_b);
-void	ft_ra(int *a, int top_a, int size);
-void	ft_rb(int *b, int top_b, int size);
-void	ft_rra(int *a, int top_a, int size);
-void	ft_rrb(int *b, int top_b, int size);
+t_list	*ft_lstnew(int content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+int		ft_is_sorted(t_list **a);
+void	ft_print_stack(t_list **a);
+void	ft_sa(t_list **a);
 
 #endif

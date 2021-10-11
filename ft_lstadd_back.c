@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_operations.c                                    :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albgarci <albgarci@student.42madrid.c      +#+  +:+       +#+        */
+/*   By: albgarci </var/spool/mail/albgarci>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 20:50:44 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/11 21:07:05 by albgarci         ###   ########.fr       */
+/*   Created: 2021/09/19 13:18:07 by albgarci          #+#    #+#             */
+/*   Updated: 2021/10/11 20:05:19 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-void	ft_sa(t_list **a)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*aux;
-	
-//	(*a)->next = 0;
-	if (ft_lstsize(*a) > 1)
+
+	if (!*lst)
 	{
-		aux = *a;
-		*a = aux->next;
-		(*a)->next = aux;
+		*lst = new;
+		return ;
 	}
+	aux = ft_lstlast(*lst);
+	aux->next = new;
 }
