@@ -6,7 +6,7 @@
 /*   By: albgarci <albgarci@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 19:42:53 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/11 23:52:08 by albgarci         ###   ########.fr       */
+/*   Updated: 2021/10/12 01:48:39 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,11 @@ int	main(int argc, char *argv[])
 		ft_lstadd_back(a, ft_lstnew(ft_atoi(argv[i])));
 		i++;
 	}
+	ft_sort_stack(a, b);
 
-//argc = 0;
-//	printf("size: %i", ft_lstsize(*a));
-//	printf("\nsorted: %i\n", ft_is_sorted(a));
-	ft_pa(a, b);
-	ft_pa(a, b);
-//	ft_pa(a, b);
-	ft_ra(b);
-	ft_rb(b);
-	ft_rr(a, b);
+	printf("a stack:\n");
 	ft_print_stack(a);
+	printf("b stack:\n");
 	ft_print_stack(b);
 
 	ft_lstclear(a);
@@ -47,11 +41,52 @@ int	main(int argc, char *argv[])
 	free(b);
 //	system("leaks push_swap");
 }
+void	ft_sort_stack(t_list **a, t_list **b)
+{
+	
+//	ft_pa(a, b);
+	while (ft_lstsize(*a))
+//	while ((ft_is_sorted(a) != 1 && ft_is_sorted_rev(b) != 1))// || ft_lstsize(*a))
+	{
+		ft_pa(a, b);
+		while (ft_lstsize(*b) && ft_lstsize(*a))// && (*b)->content > (*a)->content)
+		{
+			if ((*b)->content > (*a)->content)
+			{
+				ft_pa(a, b);
+				ft_sb(b);
+				ft_pb(a, b);
+			}
+			else
+			{
+				ft_pa(a, b);
+//				ft_sa(b);
+			//	ft_rra(a);
+			}
+			while (ft_is_sorted_rev(b) != 1 && ft_lstsize(*b) > 2)// && ft_lstsize(*a) != 1)
+			{
+				write(1, "pepe\n", 5);
+				ft_sb(b);
+				ft_pb(a, b);
+			}
+		/*	if (ft_is_sorted(a) == 1 && ft_is_sorted_rev(b) == 1 && (*a)->content > (*b)->content)
+				break;
+			else
+				ft_pa(a, b);
+		*/}
+	}
+	while (ft_lstsize(*b))
+		ft_pb(a, b);
+//	b = 0;
+
+}
 
 int	ft_is_sorted(t_list **a)
 {
 	t_list *aux;
 	aux = *a;
+	if (ft_lstsize(*a) == 1)
+		return (-1);
 	while (aux->next)
 	{
 		if (aux->content < aux->next->content)
@@ -66,6 +101,8 @@ int	ft_is_sorted_rev(t_list **a)
 {
 	t_list *aux;
 	aux = *a;
+	if (ft_lstsize(*a) == 1)
+		return (-1);
 	while (aux->next)
 	{
 		if (aux->content > aux->next->content)
