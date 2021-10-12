@@ -1,4 +1,4 @@
-SRCS	=	ft_push_swap.c ft_atoi.c ft_operations.c ft_operations2.c ft_operations3.c ft_lstadd_back.c ft_lstnew.c ft_lstsize.c ft_lstlast.c ft_lstadd_front.c ft_lstclear.c
+SRCS	=	ft_push_swap.c ft_atoi.c ft_operations.c ft_operations2.c ft_operations3.c ft_lstadd_back.c ft_lstnew.c ft_lstsize.c ft_lstlast.c ft_lstadd_front.c ft_lstclear.c ft_putnbr_base.c
 
 NAME	=	push_swap
 

@@ -6,7 +6,7 @@
 /*   By: albgarci <albgarci@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 19:46:53 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/12 00:07:32 by albgarci         ###   ########.fr       */
+/*   Updated: 2021/10/12 22:38:23 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct s_list
 {
 	int				content;
+	size_t			bin;
 	struct s_list	*next;
 }	t_list;
 
@@ -46,5 +47,6 @@ void	ft_rra(t_list **a);
 void	ft_rrb(t_list **a);
 void	ft_rrr(t_list **a, t_list **b);
 void	ft_sort_stack(t_list **a, t_list **b);
+size_t	ft_putnbr_base(size_t nbr, char *base);
 
 #endif
