@@ -6,11 +6,15 @@
 /*   By: albgarci <albgarci@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 19:42:53 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/12 20:08:09 by albgarci         ###   ########.fr       */
+/*   Updated: 2021/10/15 15:50:19 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
+
+
+//https://www.interviewcake.com/concept/java/bit-shift
+//https://bitwisecmd.com/
 
 int	main(int argc, char *argv[])
 {
@@ -28,12 +32,12 @@ int	main(int argc, char *argv[])
 		ft_lstadd_back(a, ft_lstnew(ft_atoi(argv[i])));
 		i++;
 	}
-	ft_sort_stack(a, b);
-
+//	ft_sort_stack(a, b);
+	ft_map_positions(a);
 	printf("a stack:\n");
 	ft_print_stack(a);
-	printf("b stack:\n");
-	ft_print_stack(b);
+//	printf("b stack:\n");
+//	ft_print_stack(b);
 
 	ft_lstclear(a);
 	ft_lstclear(b);
@@ -41,55 +45,47 @@ int	main(int argc, char *argv[])
 	free(b);
 //	system("leaks push_swap");
 }
-void	ft_sort_stack(t_list **a, t_list **b)
+
+/*
+ * void	ft_sort_stack(t_list **a, t_list **b)
 {
 	
-	ft_pa(a, b);
-	while (ft_lstsize(*a))
-//	while ((ft_is_sorted(a) != 1 && ft_is_sorted_rev(b) != 1))// || ft_lstsize(*a))
+
+}
+*/
+
+void	ft_map_positions(t_list **a)
+{
+	t_list	*aux;
+	
+	aux = *a;
+	while (aux)
 	{
-//		ft_pa(a, b);
-	//	write(1, "l\n", 2);
-		while (ft_lstsize(*b) && ft_lstsize(*a) && (*b)->content > (*a)->content)
-		{
-	//		write(1, "a\n", 2);
-			if (ft_is_sorted(a) == 1 && ft_is_sorted_rev(b) == 1)
-				break ;
-			if ((*b)->content > (*a)->content)
-			{
-				ft_pa(a, b);
-				ft_sb(b);
-				ft_pb(a, b);
-			}
-			else
-			{
-				ft_pa(a, b);
-//				ft_sa(b);
-			//	ft_rra(a);
-			}
-			while (ft_is_sorted_rev(b) != 1 && ft_lstsize(*b) > 2)// && ft_lstsize(*a) != 1)
-			{
-				write(1, "pepe\n", 5);
-				ft_sb(b);
-				ft_pb(a, b);
-			}
-		}
-		if (ft_is_sorted(a) == 1 && ft_is_sorted_rev(b) == 1)
-			break ;
-		if (ft_lstsize(*b) == 1 && (*a)->content > (*b)->content)
-			ft_pb(a, b);
-		else if (ft_lstsize(*b) && (*a)->content > (*b)->content)
-			ft_pa(a, b);
-
-	//	printf("a stack:\n");
-	//	ft_print_stack(a);
-	//	printf("b stack:\n");
-	//	ft_print_stack(b);
+		ft_sum_one(a, aux->content);
+		aux = aux->next;
 	}
-	while (ft_lstsize(*b))
-		ft_pb(a, b);
-//	b = 0;
+}
 
+void ft_sum_one(t_list **a, int num)
+{
+	t_list	*aux;
+	int		same;
+
+	aux = *a;
+	same = 0;
+	while (aux)
+	{
+		if (aux->content == num && !same)
+			same = 1;
+		else if (aux->content == num && same)
+		{
+			write(1, "Error\n", 6);
+			break ;
+		}
+		if (aux->content >= num)
+		   aux->position++;
+		aux = aux->next;
+	}
 }
 
 int	ft_is_sorted(t_list **a)
@@ -130,7 +126,9 @@ void	ft_print_stack(t_list **a)
 	aux = *a;
 	while (aux)
 	{
-		printf("%i\n", aux->content);
+		printf("Content: %i\n", aux->content);
+		printf("Content right shift %i", aux->content >> 1);
+		printf("Position: %i\n\n", aux->position);
 		aux = aux->next;
 	}
 }

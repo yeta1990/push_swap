@@ -6,7 +6,7 @@
 /*   By: albgarci </var/spool/mail/albgarci>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 12:45:21 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/12 22:43:52 by albgarci         ###   ########.fr       */
+/*   Updated: 2021/10/15 15:27:12 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_list	*ft_lstnew(int content)
 		return (NULL);
 	element->content = content;
 	element->bin = ft_putnbr_base(content, "01");
+	element->position = 0;
 	element->next = NULL;
 	return (element);
 }
