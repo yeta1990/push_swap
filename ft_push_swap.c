@@ -6,7 +6,7 @@
 /*   By: albgarci <albgarci@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 19:42:53 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/15 15:50:19 by albgarci         ###   ########.fr       */
+/*   Updated: 2021/10/17 02:41:46 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 //https://www.interviewcake.com/concept/java/bit-shift
 //https://bitwisecmd.com/
+//https://codeforwin.org/2016/01/c-program-to-check-lsb-of-number.html
+//not working: 1 3 2 -1 or 1 3 2 4
+// working: 1 3 2 7 9 20 21
+
+
 
 int	main(int argc, char *argv[])
 {
@@ -34,7 +39,36 @@ int	main(int argc, char *argv[])
 	}
 //	ft_sort_stack(a, b);
 	ft_map_positions(a);
-	printf("a stack:\n");
+	printf("\na stack:\n");
+	
+	t_list *aux;
+	aux = *a;
+	i = 0;
+//	ft_print_stack(a);
+	while (ft_is_sorted(a) == 0)
+	{
+		while (ft_zero_left(a, i) == 0 || ft_zero_left(b, i) == 1)
+		{
+			if ((((*a)->position >> i) & 1) == 0)
+			{
+				ft_pb(a, b);
+			//	break ;
+			}
+			else
+			{
+				ft_ra(a);
+			//	printf("%i", (*a)->position);
+			}
+		//	printf("e");
+		}
+		while (ft_lstsize(*b) > 0)
+		{
+			ft_pa(a, b);
+		}
+		i++;
+		if (i > 32)
+			break ;
+	}
 	ft_print_stack(a);
 //	printf("b stack:\n");
 //	ft_print_stack(b);
@@ -44,6 +78,20 @@ int	main(int argc, char *argv[])
 	free(a);
 	free(b);
 //	system("leaks push_swap");
+}
+
+int	ft_zero_left(t_list **a, int i)
+{
+	t_list *aux;
+
+	aux = *a;
+	while (aux)
+	{
+		if ((((aux)->position >> i) & 1) == 0)
+			return (0);
+		aux = aux->next;
+	}
+	return (1);
 }
 
 /*
@@ -86,6 +134,14 @@ void ft_sum_one(t_list **a, int num)
 		   aux->position++;
 		aux = aux->next;
 	}
+/*
+	aux = *a;
+	while (aux)
+	{
+		aux->position--;
+		aux = aux->next;
+	}
+*/
 }
 
 int	ft_is_sorted(t_list **a)
@@ -127,8 +183,13 @@ void	ft_print_stack(t_list **a)
 	while (aux)
 	{
 		printf("Content: %i\n", aux->content);
-		printf("Content right shift %i", aux->content >> 1);
 		printf("Position: %i\n\n", aux->position);
-		aux = aux->next;
+	/*	write(1, "Bin pos: ", 9);
+		ft_putnbr_base(aux->position, "01");
+		write(1, "\nBin right shift 2: ", 20);
+		ft_putnbr_base(aux->position >> 2, "01");
+		printf("\nLSB: %i", (aux->position >> 2) & 1);
+		printf("\nContent right shift %i\n\n", aux->position >> 1);
+	*/	aux = aux->next;
 	}
 }
