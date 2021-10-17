@@ -6,7 +6,7 @@
 /*   By: albgarci <albgarci@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 11:44:00 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/17 00:35:45 by albgarci         ###   ########.fr       */
+/*   Updated: 2021/10/17 22:24:04 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ void	recurs(unsigned int nbr, char *base, int base_len, size_t *len)
 	{
 		(*len)++;
 		recurs(nbr / base_len, base, base_len, len);
-		write(1, &base[nbr % base_len], 1);
+	//	write(1, &base[nbr % base_len], 1);
 	}
 }

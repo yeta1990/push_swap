@@ -24,4 +24,7 @@ fclean:		clean
 
 re:			fclean all
 
+san:		fclean 	
+			$(CC) $(CFLAGS) -g3 -fsanitize=address $(SRCS) -o $(NAME)
+
 .PHONY:		all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: albgarci <albgarci@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 19:42:53 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/17 02:41:46 by albgarci         ###   ########.fr       */
+/*   Updated: 2021/10/18 00:31:11 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,37 +39,68 @@ int	main(int argc, char *argv[])
 	}
 //	ft_sort_stack(a, b);
 	ft_map_positions(a);
-	printf("\na stack:\n");
+//	printf("\na stack:\n");
 	
 	t_list *aux;
 	aux = *a;
 	i = 0;
-//	ft_print_stack(a);
+//	int j = 1;
+	//ft_print_stack(a);
+	
 	while (ft_is_sorted(a) == 0)
 	{
-		while (ft_zero_left(a, i) == 0 || ft_zero_left(b, i) == 1)
+//		i = 0;
+	//	while (i < ft_lstsize(*a))
+		while ((*a) && ft_zero_left(a, i) == 1)
 		{
+		/*	if ((((*a)->position >> i) & 1) == 1)
+				ft_ra(a);
+			else
+				ft_pb(a, b);*/
+
 			if ((((*a)->position >> i) & 1) == 0)
 			{
 				ft_pb(a, b);
-			//	break ;
+				if (ft_lstsize(*b) > 1 && (*b)->content < (*b)->next->content)
+					ft_sb(b);
+		/*		if (ft_lstsize(*b) == 3 && (*b)->content > (*b)->next->content && (*b)->next->content < (*b)->next->next->content)
+				{
+					ft_sb(b);
+					ft_rrb(b);
+				}*/
+		//		if (ft_lstsize(*a) > ft_lstsize(*b) && (*a)->content > (*a)->next->content)		
+		//			ft_sa(a);
+
 			}
 			else
-			{
 				ft_ra(a);
-			//	printf("%i", (*a)->position);
-			}
+
+		//	i++;
 		//	printf("e");
 		}
+
+		if (i == 0)
+		{
+			while ((*b) && ft_ones_left(b, 1) == 1)
+			{
+				break ;
+			}
+		}
+			
 		while (ft_lstsize(*b) > 0)
 		{
 			ft_pa(a, b);
 		}
 		i++;
-		if (i > 32)
+
+	/*	if (i > 3)
 			break ;
-	}
-	ft_print_stack(a);
+	*/}
+	ft_pa(a, b);
+	printf("\ni: %i", i);
+	if (ft_is_sorted(a) == 1 && ft_lstsize(*b) == 0)
+		printf("\nSorted!\n");
+//	ft_print_stack(a);
 //	printf("b stack:\n");
 //	ft_print_stack(b);
 
@@ -88,10 +119,25 @@ int	ft_zero_left(t_list **a, int i)
 	while (aux)
 	{
 		if ((((aux)->position >> i) & 1) == 0)
-			return (0);
+			return (1);
 		aux = aux->next;
 	}
-	return (1);
+	return (0);
+}
+
+
+int	ft_ones_left(t_list **b, int i)
+{
+	t_list *aux;
+
+	aux = *b;
+	while (aux)
+	{
+		if ((((aux)->position >> i) & 1) == 1)
+			return (1);
+		aux = aux->next;
+	}
+	return (0);
 }
 
 /*
@@ -183,10 +229,11 @@ void	ft_print_stack(t_list **a)
 	while (aux)
 	{
 		printf("Content: %i\n", aux->content);
-		printf("Position: %i\n\n", aux->position);
-	/*	write(1, "Bin pos: ", 9);
+		printf("Position: %i\n", aux->position);
+		write(1, "Bin pos: ", 9);
 		ft_putnbr_base(aux->position, "01");
-		write(1, "\nBin right shift 2: ", 20);
+		write(1, "\n\n", 2);
+	/*	write(1, "\nBin right shift 2: ", 20);
 		ft_putnbr_base(aux->position >> 2, "01");
 		printf("\nLSB: %i", (aux->position >> 2) & 1);
 		printf("\nContent right shift %i\n\n", aux->position >> 1);
