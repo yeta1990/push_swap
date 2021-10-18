@@ -1,4 +1,6 @@
-SRCS	=	ft_push_swap.c ft_atoi.c ft_operations.c ft_operations2.c ft_operations3.c ft_lstadd_back.c ft_lstnew.c ft_lstsize.c ft_lstlast.c ft_lstadd_front.c ft_lstclear.c ft_putnbr_base.c
+SRCS	=	ft_push_swap.c ft_atoi.c ft_operations.c ft_operations2.c ft_operations3.c ft_lstadd_back.c ft_lstnew.c ft_lstsize.c ft_lstlast.c ft_lstadd_front.c ft_lstclear.c ft_sort_logic.c
+
+OBJS	= $(SRCS:.c=.o)
 
 NAME	=	push_swap
 
@@ -11,13 +13,13 @@ RM		=	rm -f
 %.o:%.c
 		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-$(NAME):	
-			$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+$(NAME):	$(OBJS)	
+			$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 			
 all:		$(NAME)
 
 clean:
-			$(RM) $(OBJS) $(BONUS_OBJS)
+			$(RM) $(OBJS)
 
 fclean:		clean
 			$(RM) $(NAME)
