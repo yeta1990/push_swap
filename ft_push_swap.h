@@ -6,7 +6,7 @@
 /*   By: albgarci <albgarci@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 19:46:53 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/18 00:18:38 by albgarci         ###   ########.fr       */
+/*   Updated: 2021/10/18 01:06:35 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ void	ft_map_positions(t_list **a);
 void	ft_sum_one(t_list **a, int num);
 int		ft_zero_left(t_list **a, int i);
 int		ft_ones_left(t_list **b, int i);
+int		ft_calc_bits(int num);
 
 #endif

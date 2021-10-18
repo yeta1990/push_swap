@@ -6,7 +6,7 @@
 /*   By: albgarci <albgarci@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 19:42:53 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/18 00:31:11 by albgarci         ###   ########.fr       */
+/*   Updated: 2021/10/18 02:35:31 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,71 +44,81 @@ int	main(int argc, char *argv[])
 	t_list *aux;
 	aux = *a;
 	i = 0;
-//	int j = 1;
-	//ft_print_stack(a);
-	
+	int j;
+	int bit;
+	int z;
+	bit = 0;
+
+	int bits;
+
+//	int	bi;
+//	bi = 0;
+
 	while (ft_is_sorted(a) == 0)
 	{
-//		i = 0;
-	//	while (i < ft_lstsize(*a))
-		while ((*a) && ft_zero_left(a, i) == 1)
-		{
-		/*	if ((((*a)->position >> i) & 1) == 1)
-				ft_ra(a);
-			else
-				ft_pb(a, b);*/
-
-			if ((((*a)->position >> i) & 1) == 0)
-			{
-				ft_pb(a, b);
-				if (ft_lstsize(*b) > 1 && (*b)->content < (*b)->next->content)
-					ft_sb(b);
-		/*		if (ft_lstsize(*b) == 3 && (*b)->content > (*b)->next->content && (*b)->next->content < (*b)->next->next->content)
-				{
-					ft_sb(b);
-					ft_rrb(b);
-				}*/
-		//		if (ft_lstsize(*a) > ft_lstsize(*b) && (*a)->content > (*a)->next->content)		
-		//			ft_sa(a);
-
-			}
-			else
-				ft_ra(a);
-
-		//	i++;
-		//	printf("e");
-		}
-
-		if (i == 0)
-		{
-			while ((*b) && ft_ones_left(b, 1) == 1)
-			{
+		j = ft_lstsize(*a);
+		i = 0;
+		while (i < j)
+		{	
+			if (bit == bits && ft_is_sorted(a) && ft_is_sorted_rev(b))
 				break ;
+			if ((((*a)->position >> bit) & 1) == 0)
+				ft_pb(a, b);
+			else
+				ft_ra(a);
+			i++;
+		}
+		int p;
+		p = 0;
+
+		bits = ft_calc_bits(ft_lstsize(*a));
+		z = 0;
+		if (bit < bits - 1)
+		{
+			z = ft_lstsize(*b);
+			while (p < z)
+			{
+				if ((((*b)->position >> (bit + 1)) & 1) == 1)
+					ft_pa(a, b);
+				else
+					ft_rb(b);
+				p++;
 			}
 		}
-			
-		while (ft_lstsize(*b) > 0)
+		else
 		{
-			ft_pa(a, b);
+			while (ft_lstsize(*b) > 0)
+			{
+				ft_pa(a, b);
+			}
 		}
-		i++;
-
-	/*	if (i > 3)
-			break ;
-	*/}
-	ft_pa(a, b);
-	printf("\ni: %i", i);
-	if (ft_is_sorted(a) == 1 && ft_lstsize(*b) == 0)
-		printf("\nSorted!\n");
+		bit++;
+	}
+//	printf("\nbit: %i", bit);
+//	if (ft_is_sorted(a) == 1 && ft_lstsize(*b) == 0)
+//		printf("\nSorted!\n");
 //	ft_print_stack(a);
 //	printf("b stack:\n");
 //	ft_print_stack(b);
 
+	
 	ft_lstclear(a);
 	ft_lstclear(b);
 	free(a);
 	free(b);
 //	system("leaks push_swap");
+}
+
+int	ft_calc_bits(int num)
+{
+	int	i;
+	i = 0;
+	while (num > 0)
+	{
+		i++;
+		num /= 2;
+	}
+	return (i);
 }
 
 int	ft_zero_left(t_list **a, int i)
@@ -139,14 +149,6 @@ int	ft_ones_left(t_list **b, int i)
 	}
 	return (0);
 }
-
-/*
- * void	ft_sort_stack(t_list **a, t_list **b)
-{
-	
-
-}
-*/
 
 void	ft_map_positions(t_list **a)
 {
