@@ -6,7 +6,7 @@
 /*   By: albgarci <albgarci@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 19:42:53 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/18 15:57:03 by albgarci         ###   ########.fr       */
+/*   Updated: 2021/10/18 16:34:58 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char *argv[])
 	ft_lstclear(b);
 	free(a);
 	free(b);
-	system("leaks push_swap");
+//	system("leaks push_swap");
 }
 
 void	ft_map_positions(t_list **a)
