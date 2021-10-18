@@ -6,7 +6,7 @@
 /*   By: albgarci <albgarci@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 19:42:53 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/18 02:35:31 by albgarci         ###   ########.fr       */
+/*   Updated: 2021/10/18 03:10:48 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ int	main(int argc, char *argv[])
 
 //	int	bi;
 //	bi = 0;
-
 	while (ft_is_sorted(a) == 0)
 	{
 		j = ft_lstsize(*a);
+	
 		i = 0;
 		while (i < j)
 		{	
@@ -68,7 +68,11 @@ int	main(int argc, char *argv[])
 				ft_ra(a);
 			i++;
 		}
-		int p;
+	/*	while (ft_lstlast(*b)->position != 0)
+		{
+			ft_rrr(a, b);
+		}
+	*/		int p;
 		p = 0;
 
 		bits = ft_calc_bits(ft_lstsize(*a));
