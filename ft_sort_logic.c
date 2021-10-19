@@ -6,7 +6,7 @@
 /*   By: albgarci <albgarci@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 15:22:47 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/18 16:49:41 by albgarci         ###   ########.fr       */
+/*   Updated: 2021/10/19 01:28:48 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ void	ft_create_and_sort(t_list **a, t_list **b, int argc, char **argv)
 		}
 	}
 	else if (ft_lstsize(*a) > 3)
-		ft_sort_five(a, b, argc, argv);
+		ft_sort_five(a, b);
 	else
-		ft_sort_three(a, b, argc, argv);
-	if (ft_is_sorted(a) == 1 && ft_lstsize(*b) == 0)
-		write(1, "\nSorted!\n", 9);
+		ft_sort_three(a);
+//	if (ft_is_sorted(a) == 1 && ft_lstsize(*b) == 0)
+//		write(1, "\nSorted!\n", 9);
 }
 
 void	ft_radix_pb(t_list **a, t_list **b, int bit)
