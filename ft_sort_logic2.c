@@ -6,7 +6,7 @@
 /*   By: albgarci <albgarci@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:39:10 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/19 16:49:14 by albgarci         ###   ########.fr       */
+/*   Updated: 2021/10/19 18:00:26 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	ft_sort_five(t_list **a, t_list **b)
 	{
 		ft_pb(a, b);
 		ft_pb(a, b);
-		ft_sort_three(a);
+		if (!ft_is_sorted(a))
+			ft_sort_three(a);
 		if ((*b)->position < (*b)->next->position)
 			ft_sb(b);
 		if ((*b)->position == 0 || ft_lstlast(*a)->position == 2)
@@ -42,7 +43,8 @@ void	ft_sort_five(t_list **a, t_list **b)
 void	ft_sort_four(t_list **a, t_list **b)
 {
 	ft_pb(a, b);
-	ft_sort_three(a);
+	if (!ft_is_sorted(a))
+		ft_sort_three(a);
 	if ((*b)->position == 3)
 	{
 		ft_pa(a, b);
@@ -79,6 +81,6 @@ void	ft_sort_three(t_list **a)
 		else if ((*a)->position > (*a)->next->next->position)
 			ft_rra(a);
 	}
-	else if (ft_lstsize(*a) == 2)
+	else if (ft_lstsize(*a) == 2 && !ft_is_sorted(a))
 		ft_sa(a);
 }

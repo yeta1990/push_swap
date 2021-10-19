@@ -6,7 +6,7 @@
 /*   By: albgarci <albgarci@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 19:42:53 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/18 16:34:58 by albgarci         ###   ########.fr       */
+/*   Updated: 2021/10/19 17:58:00 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	main(int argc, char *argv[])
 	ft_lstclear(b);
 	free(a);
 	free(b);
-//	system("leaks push_swap");
 }
 
 void	ft_map_positions(t_list **a)
@@ -99,7 +98,7 @@ int	ft_is_sorted_rev(t_list **a)
 	}
 	return (1);
 }
-
+/*
 void	ft_print_stack(t_list **a)
 {
 	t_list *aux;
@@ -111,10 +110,10 @@ void	ft_print_stack(t_list **a)
 //		write(1, "Bin pos: ", 9);
 //		ft_putnbr_base(aux->position, "01");
 		write(1, "\n\n", 2);
-	/*	write(1, "\nBin right shift 2: ", 20);
+		write(1, "\nBin right shift 2: ", 20);
 		ft_putnbr_base(aux->position >> 2, "01");
 		printf("\nLSB: %i", (aux->position >> 2) & 1);
 		printf("\nContent right shift %i\n\n", aux->position >> 1);
-	*/	aux = aux->next;
+		aux = aux->next;
 	}
-}
+}*/
