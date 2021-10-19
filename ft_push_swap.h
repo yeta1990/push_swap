@@ -6,7 +6,7 @@
 /*   By: albgarci <albgarci@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 19:46:53 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/19 00:00:09 by albgarci         ###   ########.fr       */
+/*   Updated: 2021/10/19 16:40:55 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	ft_radix_pa(t_list **a, t_list **b, int bit);
 void	ft_radix_pb(t_list **a, t_list **b, int bit);
 void	ft_create_and_sort(t_list **a, t_list **b, int argc, char **argv);
 void	ft_sort_three(t_list **a);
+void	ft_sort_four(t_list **a, t_list **b);
 void	ft_sort_five(t_list **a, t_list **b);
 
 #endif
