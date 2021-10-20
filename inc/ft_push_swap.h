@@ -6,7 +6,7 @@
 /*   By: albgarci <albgarci@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 19:46:53 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/20 02:31:19 by albgarci         ###   ########.fr       */
+/*   Updated: 2021/10/20 13:23:28 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int		ft_calc_bits(int num);
 void	ft_radix_pa(t_list **a, t_list **b, int bit);
 void	ft_radix_pb(t_list **a, t_list **b, int bit);
 void	ft_create_and_sort(t_list **a, t_list **b, int argc, char **argv);
+void	ft_create_and_read(t_list **a, t_list **b, int argc, char **argv);
 void	ft_sort_three(t_list **a);
 void	ft_sort_four(t_list **a, t_list **b);
 void	ft_sort_five(t_list **a, t_list **b);
@@ -65,5 +66,8 @@ void	ft_throw_error(void);
 void	ft_sort_stack(t_list **a, t_list **b);
 void	ft_spaces_error(char *str);
 int		ft_get_sign(char s);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
+void	ft_read_and_sort(t_list **a, t_list **b);
+int		ft_read_and_sort2(char *instruction, t_list **a, t_list **b);
 
 #endif

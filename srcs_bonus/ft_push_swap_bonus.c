@@ -1,18 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_swap.c                                     :+:      :+:    :+:   */
+/*   ft_push_swap_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albgarci <albgarci@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 19:42:53 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/20 13:35:32 by albgarci         ###   ########.fr       */
+/*   Created: 2021/10/20 10:54:01 by albgarci          #+#    #+#             */
+/*   Updated: 2021/10/20 13:37:12 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-//https://www.interviewcake.com/concept/java/bit-shift
-//https://bitwisecmd.com/
-//https://codeforwin.org/2016/01/c-program-to-check-lsb-of-number.html
 
 #include "ft_push_swap.h"
 
@@ -27,11 +23,16 @@ int	main(int argc, char *argv[])
 	b = malloc(sizeof(t_list));
 	if (!b)
 		return (0);
-	ft_create_and_sort(a, b, argc, argv);
+	ft_create_and_read(a, b, argc, argv);
+	if (ft_is_sorted(a) && ft_lstsize(*b) == 0)
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
 	ft_lstclear(a);
 	ft_lstclear(b);
 	free(a);
 	free(b);
+	system("leaks checker");
 }
 
 void	ft_map_positions(t_list **a)
@@ -98,22 +99,3 @@ int	ft_is_sorted_rev(t_list **a)
 	}
 	return (1);
 }
-/*
-void	ft_print_stack(t_list **a)
-{
-	t_list *aux;
-	aux = *a;
-	while (aux)
-	{
-		printf("Content: %i\n", aux->content);
-		printf("Position: %i\n", aux->position);
-//		write(1, "Bin pos: ", 9);
-//		ft_putnbr_base(aux->position, "01");
-//		write(1, "\n\n", 2);
-//		write(1, "\nBin right shift 2: ", 20);
-//		ft_putnbr_base(aux->position >> 2, "01");
-//		printf("\nLSB: %i", (aux->position >> 2) & 1);
-//		printf("\nContent right shift %i\n\n", aux->position >> 1);
-		aux = aux->next;
-	}
-}*/
