@@ -6,7 +6,7 @@
 /*   By: albgarci <albgarci@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 19:42:53 by albgarci          #+#    #+#             */
-/*   Updated: 2021/10/19 17:58:00 by albgarci         ###   ########.fr       */
+/*   Updated: 2021/10/20 01:43:20 by albgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,7 @@ void	ft_sum_one(t_list **a, int num)
 		if (aux->content == num && !same)
 			same = 1;
 		else if (aux->content == num && same)
-		{
-			write(1, "Error\n", 6);
-			ft_lstclear(a);
-			exit(1);
-		}
+			ft_throw_error();
 		if (aux->content >= num)
 			aux->position++;
 		aux = aux->next;
@@ -109,11 +105,11 @@ void	ft_print_stack(t_list **a)
 		printf("Position: %i\n", aux->position);
 //		write(1, "Bin pos: ", 9);
 //		ft_putnbr_base(aux->position, "01");
-		write(1, "\n\n", 2);
-		write(1, "\nBin right shift 2: ", 20);
-		ft_putnbr_base(aux->position >> 2, "01");
-		printf("\nLSB: %i", (aux->position >> 2) & 1);
-		printf("\nContent right shift %i\n\n", aux->position >> 1);
+//		write(1, "\n\n", 2);
+//		write(1, "\nBin right shift 2: ", 20);
+//		ft_putnbr_base(aux->position >> 2, "01");
+//		printf("\nLSB: %i", (aux->position >> 2) & 1);
+//		printf("\nContent right shift %i\n\n", aux->position >> 1);
 		aux = aux->next;
 	}
 }*/
