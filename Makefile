@@ -16,6 +16,7 @@ INC		= ./inc
 		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I$(INC)
 
 $(NAME):	$(OBJS)	
+			$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 			
 all:		$(NAME)
 
